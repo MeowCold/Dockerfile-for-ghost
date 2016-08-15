@@ -38,10 +38,8 @@ RUN npm install --production \
 	&& rm ghost.zip \
 	&& npm cache clean \
 	&& rm -rf /tmp/npm*
-RUN apt-get update \
-    && apt-get install -y git
 WORKDIR /usr/src/ghost/content/themes
-# RUN git clone 粘贴你要添加的主题的github clone地址
+# RUN apt-get update && apt-get install -y git && git clone 粘贴你要添加的主题的github clone地址
 ENV GHOST_CONTENT /var/lib/ghost
 RUN mkdir -p "$GHOST_CONTENT" && chown -R user:user "$GHOST_CONTENT"
 VOLUME $GHOST_CONTENT
