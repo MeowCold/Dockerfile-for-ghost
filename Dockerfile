@@ -24,7 +24,7 @@ RUN unzip Ghost-0.7.4-zh-full.zip
 RUN rm config.example.js
 COPY config.example.js $GHOST_SOURCE/config.example.js
 #添加自定义主题
-#RUN cd content && cd themes && git clone https://github.com/xw-hjl/files.git && cd .. && cd ..
+#RUN cd content && cd themes && git clone https://github.com/xw-hjl/Aqours.git && cd .. && cd ..
 #进行npm安装
 RUN npm install --production
 #设置环境
