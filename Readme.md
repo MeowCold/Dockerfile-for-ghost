@@ -12,8 +12,10 @@
 
 4.每一行代码都增加了注释，一眼就能明白意思
 
+5.增加中文版后台
+
 ##English translate of this doc will get online soon.
-本dockerfile简介:简单的配置ghost blog 0.9.0，目前是最新版本，并且可以避免网络上其他dockerfile把你的静态链接url指定到localhost或者其他无法访问的网址的bug。**更重要的是，还附赠一篇超详细的网站搭建教程，小白都能撘网站。你是小白的原因就是你不敢试**
+本dockerfile简介:简单的配置ghost blog 中文版，目前是Ghost中国站的最新版最新版本，并且可以避免网络上其他dockerfile把你的静态链接url指定到localhost或者其他无法访问的网址的bug。**更重要的是，还附赠一篇超详细的网站搭建教程，小白都能撘网站。你是小白的原因就是你不敢试**
 ##使用Ghost建网站
 全程可以在手机上完成，如果可以有平板或电脑，可能会更好
 ###1.Fork
