@@ -39,7 +39,7 @@ PS:手机请点击页面下方切换到电脑版
 ###3.在daocloud注册
 [点击这里](https://account.daocloud.io/signup)打开注册界面
 
-建议直接通过`github`注册，这样接下去就不用绑定了
+建议直接通过`绑定微信`注册，这样可以永久获得免费使用2x的资格
 
 ![](https://hjl.daoapp.io/content/images/2016/08/2016-08-14-13-49-53----.png)
 
@@ -53,11 +53,11 @@ PS:手机请点击页面下方切换到电脑版
 
 ![](https://hjl.daoapp.io/content/images/2016/08/2016-08-14-14-03-46----.png)
 
-填写`项目名称`，绑定github后点击右上角旋转按钮`同步数据`，在你的github头像下方的下拉框选择`Dockerfile-for-ghost`*一定要选择！*，像这样
+填写`项目名称`，绑定github后点击右上角旋转按钮`同步数据`，在你的github头像下方的下拉框选择`Dockerfile-for-ghost`，像这样
 
 ![](https://hjl.daoapp.io/content/images/2016/08/2016-08-14-14-06-45----.png)
 
-创建完成后，先选择`master`分支，再点击`手动构建`
+创建完成后，*先选择`master`分支*，再点击`手动构建`
 
 等待五分钟左右，显示构建成功了
 
