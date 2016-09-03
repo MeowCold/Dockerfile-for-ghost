@@ -1,5 +1,6 @@
 // # Ghost 配置文件
-// 请转到15行，86行，改成你要的前缀
+// 请转到16行，88行，改成你要的前缀
+// # Ghost Configuration
 // Setup your Ghost install for various [environments](http://support.ghost.org/config/#about-environments).
 
 // Ghost runs in `development` mode by default. Full documentation can be found at http://support.ghost.org/config/
@@ -12,7 +13,7 @@ config = {
     // When running Ghost in the wild, use the production environment.
     // Configure your URL and mail settings here
     production: {
-        url: 'http://改成你要的前缀.daocloud.io',
+        url: 'http://moe.Mwulu.com',
         mail: {},
         database: {
             client: 'sqlite3',
@@ -22,69 +23,22 @@ config = {
             debug: false
         },
 
-        // 配置MySQL 数据库
-        /*database: {
-            client: 'mysql',
-            connection: {
-                host     : 'host',
-                user     : 'user',
-                password : 'password',
-                database : 'database',
-                charset  : 'utf8'
-            },
-            debug: false
-        },*/
-
         server: {
-            host: '0.0.0.0',
+            host: '127.0.0.1',
             port: '2368'
-        },
-
-        //Storage.Now,we can support `qiniu`,`upyun`, `aliyun oss`, `aliyun ace-storage` and `local-file-store`
-        storage: {
-            provider: 'local-file-store'
         }
-
-        // or
-        // 参考文档： http://www.ghostchina.com/qiniu-cdn-for-ghost/
-        /*storage: {
-            provider: 'qiniu',
-            bucketname: 'your-bucket-name',
-            ACCESS_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            SECRET_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            root: '/image/',
-            prefix: 'http://your-bucket-name.qiniudn.com'
-        }*/
-
-        // or
-        // 参考文档： http://www.ghostchina.com/upyun-cdn-for-ghost/
-        /*storage: {
-            provider: 'upyun',
-            bucketname: 'your-bucket-name',
-            username: 'your user name',
-            password: 'your password',
-            root: '/image/',
-            prefix: 'http://your-bucket-name.b0.upaiyun.com'
-        }*/
-
-        // or
-        // 参考文档： http://www.ghostchina.com/aliyun-oss-for-ghost/
-        /*storage: {
-            provider: 'oss',
-            bucketname: 'your-bucket-name',
-            ACCESS_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            SECRET_KEY: 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx',
-            root: '/image/',
-            endpoint: 'http://oss-cn-hangzhou.aliyuncs.com',  //阿里云的上传端点是分地域的，需要单独设置
-            prefix: 'http://your-bucket-name.oss-cn-hangzhou.aliyuncs.com'
-        }*/
     },
 
     // ### Development **(default)**
     development: {
         // The url to use when providing links to the site, E.g. in RSS and email.
         // Change this to your Ghost blog's published URL.
-        url: 'http://改成你想要的前缀.daoapp.io',
+        url: 'http://moe.Mwulu.com',
+
+        // Example refferer policy
+        // Visit https://www.w3.org/TR/referrer-policy/ for instructions
+        // default 'origin-when-cross-origin',
+        // referrerPolicy: 'origin-when-cross-origin',
 
         // Example mail config
         // Visit http://support.ghost.org/mail for instructions
@@ -114,7 +68,7 @@ config = {
         // Can be host & port (default), or socket
         server: {
             // Host to be passed to node's `net.Server#listen()`
-            host: '0.0.0.0',
+            host: '127.0.0.1',
             // Port to be passed to node's `net.Server#listen()`, for iisnode set this to `process.env.PORT`
             port: '2368'
         },
@@ -136,10 +90,19 @@ config = {
             client: 'sqlite3',
             connection: {
                 filename: path.join(__dirname, '/content/data/ghost-test.db')
-            }
+            },
+            pool: {
+                afterCreate: function (conn, done) {
+                    conn.run('PRAGMA synchronous=OFF;' +
+                    'PRAGMA journal_mode=MEMORY;' +
+                    'PRAGMA locking_mode=EXCLUSIVE;' +
+                    'BEGIN EXCLUSIVE; COMMIT;', done);
+                }
+            },
+            useNullAsDefault: true
         },
         server: {
-            host: '0.0.0.0',
+            host: '127.0.0.1',
             port: '2369'
         },
         logging: false

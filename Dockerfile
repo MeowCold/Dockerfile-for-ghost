@@ -1,7 +1,7 @@
 #Nico~Nico~Ni~
 #如果你要添加自定义主题，可以把26行的网址改成GitHub主题克隆网址
-#node0.10,ghost0.7.4,中文
-FROM node:4.2-slim
+#node4.5,ghost0.7.4,中文
+FROM node:4.5-slim
 #使用apt-get安装必备软件包
 RUN apt-get update \
  && apt-get install -y zip \
@@ -17,9 +17,9 @@ RUN mkdir $GHOST_SOURCE
 #切换工作目录到Ghost路径
 WORKDIR $GHOST_SOURCE
 #从官网下载文件包
-RUN wget http://dl.ghostchina.com/Ghost-0.7.4-zh-full.zip
+RUN wget https://github.com/TryGhost/Ghost/releases/download/0.10.0/Ghost-0.10.0.zip
 #解压文件包
-RUN unzip Ghost-0.7.4-zh-full.zip
+RUN unzip Ghost-0.10.0.zip
 #替换config.js
 RUN rm config.example.js
 COPY config.example.js $GHOST_SOURCE/config.example.js
