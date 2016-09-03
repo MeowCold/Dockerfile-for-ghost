@@ -1,7 +1,7 @@
 #Nico~Nico~Ni~
 #如果你要添加自定义主题，可以把26行的网址改成GitHub主题克隆网址
-#node4.5,ghost0.7.4,中文
-FROM node:4.5-slim
+#node4.2,ghost0.7.4,中文
+FROM node:4.2-slim
 #使用apt-get安装必备软件包
 RUN apt-get update \
  && apt-get install -y zip \
